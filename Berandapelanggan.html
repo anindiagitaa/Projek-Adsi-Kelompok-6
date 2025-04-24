@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard - UMKM GO</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      height: 100vh;
+      background-color: #f0f5ff;
+    }
+
+    .sidebar {
+      width: 220px;
+      background-color: #a5c9ff;
+      padding: 20px 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      border-radius: 0 40px 40px 0;
+    }
+
+    .sidebar h2 {
+      text-align: center;
+      font-size: 20px;
+      margin-bottom: 30px;
+    }
+
+    .sidebar a {
+      text-decoration: none;
+      color: #000;
+      font-weight: bold;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-radius: 8px;
+    }
+
+    .sidebar a:hover,
+    .sidebar a.active {
+      background-color: #003087;
+      color: white;
+    }
+
+    .main-content {
+      flex: 1;
+      padding: 20px 40px;
+      overflow-y: auto;
+    }
+
+    .header {
+      font-size: 24px;
+      font-weight: bold;
+      color: #003087;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-right: 30px;
+    }
+
+    .header .icons {
+      display: flex;
+      gap: 20px;
+    }
+
+    .header .icons i {
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    .categories {
+      display: flex;
+      gap: 12px;
+      margin: 20px 0;
+    }
+
+    .category-btn {
+      padding: 10px 20px;
+      border: none;
+      background-color: white;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .category-btn.active {
+      background-color: #003087;
+      color: white;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .product-card {
+      background-color: white;
+      padding: 16px;
+      border-radius: 12px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.2s;
+    }
+
+    .product-card:hover {
+      transform: scale(1.02);
+    }
+
+    .product-card img {
+      width: 100%;
+      border-radius: 10px;
+      height: 160px;
+      object-fit: cover;
+    }
+
+    .product-card h3 {
+      margin: 10px 0 5px;
+      font-size: 16px;
+    }
+
+    .product-card p {
+      font-size: 14px;
+      color: #333;
+    }
+
+    .product-card .price {
+      font-weight: bold;
+      margin: 5px 0;
+    }
+
+    .buy-button {
+      background-color: #003087;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <h2>UMKM GO</h2>
+    <a href="#" class="active" id="beranda">🏠 Beranda</a>
+    <a href="#">👤 Profil</a>
+    <a href="#">📦 Pesanan Saya</a>
+    <a href="#">💳 Transaksi</a>
+    <a href="#">🚪 Keluar</a>
+  </div>
+
+  <div class="main-content">
+    <div class="header">
+      <div>Halo Harris Caine!</div>
+      <div class="icons">
+        <i class="fas fa-search" title="Pencarian"></i>
+        <i class="fas fa-bell" title="Notifikasi"></i>
+        <i class="fas fa-envelope" title="Pesan"></i>
+        <i class="fas fa-shopping-cart" title="Keranjang"></i>
+      </div>
+    </div>
+
+    <div class="categories">
+      <button class="category-btn active">Pakaian</button>
+      <button class="category-btn">Aksesoris</button>
+      <button class="category-btn">Kerajinan Tangan</button>
+      <button class="category-btn">Lainnya</button>
+    </div>
+
+    <div class="product-grid">
+      <!-- Baris Atas -->
+      <a href="detail_produk1.html" class="product-card">
+        <img src="Hoodie pria.jpg" alt="Hoodie Pria">
+        <h3>Hoodie Pria</h3>
+        <p class="price">Rp50.000,-</p>
+        <p>Hoodie pria dengan desain simpel, cocok dipakai untuk aktivitas sehari-hari maupun hangout santai.</p>
+        <button class="buy-button">🛒 Beli Sekarang</button>
+      </a>
+
+      <a href="detail_produk2.html" class="product-card">
+        <img src="Sweaterpita.jpg" alt="Sweater Rajut Wanita">
+        <h3>Sweater Rajut Wanita</h3>
+        <p class="price">Rp76.000,-</p>
+        <p>Sweater wanita dengan desain pita 3D warna pink, memberikan kesan manis dan feminin.</p>
+        <button class="buy-button">🛒 Beli Sekarang</button>
+      </a>
+
+      <a href="detail_produk3.html" class="product-card">
+        <img src="Hoodiezipper.jpg" alt="Hoodie Zipper Unisex">
+        <h3>Hoodie Zipper Unisex</h3>
+        <p class="price">Rp104.000,-</p>
+        <p>Hoodie hitam dengan resleting, cocok untuk gaya kasual dan nyaman dipakai sehari-hari.</p>
+        <button class="buy-button">🛒 Beli Sekarang</button>
+      </a>
+
+      <!-- Baris Bawah -->
+      <a href="detail_produk4.html" class="product-card">
+        <img src="basic sweater polos .jpg" alt="Kaos Simple Unisex">
+        <h3>Basic Sweater Polos</h3>
+        <p class="price">Rp74.000,-</p>
+        <p>Kaos unisex dengan desain sederhana, cocok untuk berbagai aktivitas dan mudah dipadukan.</p>
+        <button class="buy-button">🛒 Beli Sekarang</button>
+      </a>
+
+      <a href="detail_produk5.html" class="product-card">
+        <img src="crewneckpria.jpg" alt="Basic Sweater Polos">
+        <h3>Crewneck Pria</h3>
+        <p class="price">Rp85.000,-</p>
+        <p>Sweater polos dengan desain minimalis dan bahan nyaman, cocok untuk tampilan kasual.</p>
+        <button class="buy-button">🛒 Beli Sekarang</button>
+      </a>
+
+      <a href="detail_produk6.html" class="product-card">
+        <img src="knitedcardi.jpg" alt="Knitted Cardi">
+        <h3>Knitted Cardi</h3>
+        <p class="price">Rp58.900,-</p>
+        <p>Cardigan rajut dengan desain lembut dan hangat, cocok untuk cuaca dingin.</p>
+        <button class="buy-button">🛒 Beli Sekarang</button>
+      </a>
+    </div>
+  </div>
+
+  <!-- Font Awesome untuk ikon -->
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+  <script>
+    document.getElementById("beranda").addEventListener("click", function(event) {
+      event.preventDefault();
+      alert("Beranda diklik!");
+    });
+  </script>
+</body>
+</html>

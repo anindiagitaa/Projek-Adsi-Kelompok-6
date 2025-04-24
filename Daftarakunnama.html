@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UMKM GO - Masuk</title>
+    <style>
+        body {
+            display: flex;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+        }
+        .left {
+            width: 45%;
+            background-color: #a5c9ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: #2b2b2b;
+            border-radius: 0 40px 40px 0;
+            padding: 40px;
+        }
+        .left img {
+            width: 200px;
+            margin-bottom: 30px;
+        }
+        .left h1 {
+            font-size: 30px;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        .left p {
+            font-size: 15px;
+            color: #444;
+        }
+        .right {
+            width: 55%;
+            background-color: #e3ecfc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .form-container {
+            width: 360px;
+        }
+        .form-container h2 {
+            margin-bottom: 10px;
+            font-size: 24px;
+        }
+        .form-container p {
+            margin: 0 0 10px;
+            font-size: 14px;
+        }
+        .form-container input[type="text"],
+        .form-container input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 12px;
+            border-radius: 6px;
+            border: 1px solid #999;
+            font-size: 14px;
+        }
+        .form-container label {
+            font-size: 14px;
+        }
+        .form-container button {
+            width: 100%;
+            padding: 12px;
+            background-color: #003087;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .form-container button:hover {
+            background-color: #001f5c;
+        }
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        .checkbox-container input {
+            margin-right: 10px;
+        }
+        .form-container small {
+            font-size: 12px;
+            display: block;
+            margin-top: 12px;
+        }
+        .password-toggle {
+            position: relative;
+        }
+        .password-toggle-icon {
+            position: absolute;
+            right: 10px;
+            top: 14px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="left">
+        <img src="keranjang.png" alt="Keranjang UMKM GO">
+        <h1>UMKM GO</h1>
+        <p>Dari Lokal untuk Nasional!</p>
+    </div>
+    <div class="right">
+        <div class="form-container">
+            <h2>Masuk</h2>
+            <p><small>Belum Punya Akun? <a href="#" onclick="alert('Fitur Daftar belum tersedia')">Daftar</a></small></p>
+            <input type="text" id="username" placeholder="Nama Pengguna" value="HarrisCaine">
+            <div class="password-toggle">
+                <input type="password" id="password" placeholder="Kata sandi">
+                <span class="password-toggle-icon" onclick="togglePassword()">👁️</span>
+            </div>
+            <div class="checkbox-container">
+                <input type="checkbox" id="rememberMe">
+                <label for="rememberMe">Biarkan saya tetap masuk</label>
+            </div>
+            <button onclick="login()">MASUK</button>
+            <small>Dengan mengklik 'Masuk', Anda menyetujui <a href="#" onclick="alert('Syarat dan Ketentuan UMKM GO')">Syarat & Ketentuan</a> situs web kami.</small>
+        </div>
+    </div>
+
+    <script>
+        function login() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (username === 'HarrisCaine' && password === '12345678') {
+                if (document.getElementById('rememberMe').checked) {
+                    localStorage.setItem('rememberedUser', username);
+                } else {
+                    localStorage.removeItem('rememberedUser');
+                }
+                alert('Berhasil masuk sebagai ' + username);
+                window.location.href = 'dashboard.html';
+            } else {
+                alert('Nama pengguna atau kata sandi salah.');
+            }
+        }
+
+        function togglePassword() {
+            const passwordField = document.getElementById('password');
+            const icon = document.querySelector('.password-toggle-icon');
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+                icon.textContent = '🙈';
+            } else {
+                passwordField.type = 'password';
+                icon.textContent = '👁️';
+            }
+        }
+    </script>
+</body>
+</html>

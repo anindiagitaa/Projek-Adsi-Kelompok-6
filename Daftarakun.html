@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Daftar Akun - UMKM GO</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      height: 100vh;
+    }
+
+    .left-panel {
+      flex: 1;
+      background-color: #a7c7f2;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border-radius: 0 30px 30px 0;
+    }
+
+    .right-panel {
+      flex: 1;
+      background-color: #eaf1fb;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .form-box {
+      width: 320px;
+    }
+
+    .form-box h2 {
+      margin-bottom: 10px;
+    }
+
+    .form-box input[type="text"],
+    .form-box input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #888;
+      border-radius: 5px;
+    }
+
+    .form-box button {
+      width: 100%;
+      padding: 10px;
+      background-color: #003e7f;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .form-box button:hover {
+      background-color: #0051a1;
+    }
+
+    .form-box .checkbox {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 15px;
+    }
+
+    .form-box .checkbox input {
+      margin-right: 5px;
+      margin-top: 3px;
+    }
+
+    .form-box small {
+      font-size: 12px;
+      display: block;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+      margin-top: 20px;
+      color: #003e7f;
+    }
+
+    .subtitle {
+      font-size: 14px;
+      color: #444;
+    }
+
+    .form-box a {
+      color: #0051a1;
+      text-decoration: none;
+    }
+
+    .form-box a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="left-panel">
+    <img src="https://img.icons8.com/ios-filled/100/ffffff/shopping-cart.png" alt="Logo" width="100" />
+    <div class="logo">UMKM GO</div>
+    <div class="subtitle">Dari Lokal untuk Nasional!</div>
+  </div>
+  <div class="right-panel">
+    <div class="form-box">
+      <h2>Daftar Akun</h2>
+      <form onsubmit="handleRegister(event)">
+        <input type="text" id="username" placeholder="Nama Pengguna" required />
+        <input type="password" id="password" placeholder="Kata sandi" required />
+        <input type="password" id="confirmPassword" placeholder="Konfirmasi Kata Sandi" required />
+        <small>Minimal 6 karakter untuk kata sandi</small>
+        <div class="checkbox">
+          <input type="checkbox" id="terms" />
+          <label for="terms">Dengan mengklik 'Daftar', Anda menyetujui Syarat & Ketentuan situs web kami.</label>
+        </div>
+        <button type="submit">DAFTAR</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    function handleRegister(event) {
+      event.preventDefault();
+
+      const username = document.getElementById('username').value.trim();
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirmPassword').value;
+      const terms = document.getElementById('terms').checked;
+
+      if (username.length < 3) {
+        alert('Nama Pengguna minimal 8 karakter.');
+        return;
+      }
+
+      if (password.length < 6) {
+        alert('Kata sandi minimal 8 karakter.');
+        return;
+      }
+
+      if (password !== confirmPassword) {
+        alert('Konfirmasi kata sandi tidak cocok.');
+        return;
+      }
+
+      if (!terms) {
+        alert('Anda harus menyetujui Syarat & Ketentuan terlebih dahulu.');
+        return;
+      }
+
+      alert('Pendaftaran berhasil! Mengarahkan ke halaman login...');
+      window.location.href = "login.html"; // Ganti ke halaman login yang kamu punya
+    }
+  </script>
+</body>
+</html>

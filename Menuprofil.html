@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard - UMKM GO</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      height: 100vh;
+      background-color: #e9f1ff;
+    }
+
+    .sidebar {
+      width: 220px;
+      background-color: #a5c9ff;
+      padding: 20px 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      border-radius: 0 40px 40px 0;
+    }
+
+    .sidebar h2 {
+      text-align: center;
+      font-size: 20px;
+      margin-bottom: 30px;
+    }
+
+    .sidebar a {
+      text-decoration: none;
+      color: #000;
+      font-weight: bold;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-radius: 8px;
+    }
+
+    .sidebar a:hover,
+    .sidebar a.active {
+      background-color: #003087;
+      color: white;
+    }
+
+    .main-content {
+      flex: 1;
+      padding: 20px 40px;
+      overflow-y: auto;
+    }
+
+    .header {
+      font-size: 24px;
+      font-weight: bold;
+      color: #003087;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-right: 30px;
+    }
+
+    .icons {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .icon-container {
+      position: relative;
+    }
+
+    .icons i {
+      font-size: 20px;
+      cursor: pointer;
+      color: #003087;
+    }
+
+    .badge {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      background-color: #ff3b30;
+      color: white;
+      border-radius: 50%;
+      padding: 2px 6px;
+      font-size: 12px;
+    }
+
+    .user-label {
+      font-size: 14px;
+      font-weight: bold;
+      color: #003087;
+      margin-left: 10px;
+    }
+
+    .profile-card {
+      margin-top: 20px;
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .profile-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .profile-header img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .profile-header h3 {
+      margin: 0;
+      font-size: 20px;
+    }
+
+    .profile-menu {
+      list-style: none;
+      padding: 0;
+      margin-top: 20px;
+    }
+
+    .profile-menu li {
+      padding: 12px;
+      border-bottom: 1px solid #ddd;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .profile-menu li:hover {
+      background-color: #f0f0f0;
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <h2>UMKM GO</h2>
+    <a href="#" id="beranda">🏠 Beranda</a>
+    <a href="#" class="active">👤 Profil</a>
+    <a href="#">📦 Pesanan Saya</a>
+    <a href="#">💳 Transaksi</a>
+    <a href="#">🚪 Keluar</a>
+  </div>
+
+  <div class="main-content">
+    <div class="header">
+      <div>Halo Harris Caine!</div>
+      <div class="icons">
+        <span class="icon-container">
+          <i class="fas fa-search" id="icon-search" title="Pencarian"></i>
+        </span>
+        <span class="icon-container">
+          <i class="fas fa-bell" id="icon-notification" title="Notifikasi"></i>
+          <span class="badge">3</span>
+        </span>
+        <span class="icon-container">
+          <i class="fas fa-envelope" id="icon-messages" title="Pesan"></i>
+          <span class="badge">5</span>
+        </span>
+        <span class="icon-container">
+          <i class="fas fa-shopping-cart" id="icon-cart" title="Keranjang"></i>
+          <span class="badge">2</span>
+        </span>
+        <div class="user-label">PELANGGAN</div>
+      </div>
+    </div>
+
+    <div class="profile-card">
+      <div class="profile-header">
+        <img src="pp.jpg" alt="Avatar Harris Caine">
+        <div>
+          <h3>Harris Caine</h3>
+          <p style="margin: 0; color: #555;">HarrisCaine</p>
+        </div>
+      </div>
+      <ul class="profile-menu">
+        <li onclick="alert('Informasi pribadi diklik')">👤 Informasi pribadi</li>
+        <li onclick="alert('Status Pesanan diklik')">🛒 Status Pesanan</li>
+        <li onclick="alert('Ulasan Saya diklik')">🗒️ Ulasan Saya</li>
+        <li onclick="alert('Pengaturan diklik')">🔧 Pengaturan</li>
+        <li onclick="alert('Syarat & Ketentuan diklik')">📄 Syarat & Ketentuan</li>
+        <li onclick="alert('Bantuan & Dukungan diklik')">❓ Bantuan & Dukungan</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Font Awesome untuk ikon -->
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+  <!-- Script interaksi -->
+  <script>
+    document.getElementById("beranda").addEventListener("click", function(e) {
+      e.preventDefault();
+      alert("Beranda diklik!");
+    });
+
+    document.getElementById("icon-search").addEventListener("click", function() {
+      alert("Pencarian diklik!");
+    });
+
+    document.getElementById("icon-notification").addEventListener("click", function() {
+      alert("Notifikasi diklik!");
+    });
+
+    document.getElementById("icon-messages").addEventListener("click", function() {
+      alert("Pesan diklik!");
+    });
+
+    document.getElementById("icon-cart").addEventListener("click", function() {
+      alert("Keranjang diklik!");
+    });
+  </script>
+</body>
+</html>
